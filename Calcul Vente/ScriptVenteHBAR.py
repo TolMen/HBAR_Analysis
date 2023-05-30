@@ -1,27 +1,27 @@
 
-# Importation paquet
+# Package import
 import json
 from requests import Session
 
 
-# Récupére la valeur de la crypto
+# Retrieves the value of the crypto
 def valeur():
     try:
-        # URL de l'API pour prendre la valeur de la crypto
+        # API URL to take crypto value
         url = 'https://api3.binance.com/api/v3/ticker/price?symbol=HBARUSDT'
 
-        # Processus de récupération
+        # Recovery process
         collect = Session()
         login = collect.get(url)
         data = json.loads(login.text)
 
-        # Stockage de la valeur
+        # Value storage
         value = data['price']
         return value
     except:
         print("Erreur API")
 
-
+# Fetch user's amount of crypto
 def base():
     quantite = False
     while not quantite:
@@ -34,7 +34,7 @@ def base():
             print("Merci d'indiquez le chiffre valide !")
             print("")
 
-
+# Recover the amount invested and calculation
 def calcul():
     test = False
     while not test:
@@ -57,16 +57,7 @@ def calcul():
             print("Merci d'indiquez le chiffre valide !")
             print("")
 
-
+# Start of the program
 print("")
 calcul()
 print("Fin du programme !")
-
-# Résumé
-#
-# 19/02/2023 = 578.28332586 HBAR à 0.08473355 HBAR pour 50 € investis
-# 22/02/2023 = 385.64512703 HBAR à 0.07623589 HBAR pour 30 € investis
-#
-# Total HBAR = 963.92845289
-
-

@@ -1,27 +1,27 @@
-# Importation paquet
+# Package import
 import json
 from requests import Session
 
 
-# Récupére la valeur de la crypto
+# Retrieves the value of the crypto
 def valeur():
     try:
-        # URL de l'API pour prendre la valeur de la crypto
+        # API URL to take crypto value
         url = 'https://api3.binance.com/api/v3/ticker/price?symbol=HBARUSDT'
 
-        # Processus de récupération
+        # Recovery process
         collect = Session()
         login = collect.get(url)
         data = json.loads(login.text)
 
-        # Stockage de la valeur
+        # Value storage
         value = data['price']
         return value
     except:
         print("Erreur API")
 
 
-# Demande la somme investie
+# Request the amount invested
 def info():
     mise = False
     while not mise:
@@ -38,26 +38,26 @@ def info():
 
 
 def script():
-    # Début programme
+    # Program start
 
-    # Appel à la valeur de la crypto
+    # Crypto Value Call
     prix = float(valeur())
 
     print("")
     print("HBAR est à", prix, "USDT/$.")
     print("")
 
-    # Appel à la fonction de demande d'info
+    # Call to the info request function
     depot = info()
 
-    # Calcul du nombre de crypto
+    # Calculation of the number of crypto
     crypto = float(depot) / float(valeur())
 
     print("----------")
     print("")
     print("Vous aurez", round(crypto, 2), "HBAR.")
 
-    # Prévision 2032
+    # Forecast 2032
     prevision = 3.75
     gain = crypto * prevision
 
