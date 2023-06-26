@@ -5,7 +5,7 @@ from requests import Session
 
 
 # Retrieves the value of the crypto
-def valeur():
+def valueFunction():
     try:
         # API URL to take crypto value
         url = 'https://api3.binance.com/api/v3/ticker/price?symbol=HBARUSDT'
@@ -23,34 +23,34 @@ def valeur():
 
 # Fetch user's amount of crypto
 def base():
-    quantite = False
-    while not quantite:
+    quantity = False
+    while not quantity:
         try:
             coins = float(input("Combien avez-vous de HBAR : "))
             if coins > 0:
-                quantite = True
+                quantity = True
                 return coins
         except ValueError:
             print("Merci d'indiquez le chiffre valide !")
             print("")
 
 # Recover the amount invested and calculation
-def calcul():
+def calculation():
     test = False
     while not test:
         try:
-            depense = float(input("Combien avez-vous dépensé : "))
-            if depense > 0:
+            spent = float(input("Combien avez-vous dépensé : "))
+            if spent > 0:
                 test = True
                 coin = float(base())
-                cout = float(valeur())
-                print("HBAR est à :", float(valeur()),)
+                cout = float(valueFunction())
+                print("HBAR est à :", float(valueFunction()),)
                 gain = float(coin * cout)
                 print("--------------------")
                 print("")
                 print("Si vous revendez, vous aurez :", round(gain, 2), "€")
                 print("")
-                print("Comptez une somme de :", round(gain - depense, 2), "€")
+                print("Comptez une somme de :", round(gain - spent, 2), "€")
                 print("")
                 print("--------------------")
         except ValueError:
@@ -59,5 +59,5 @@ def calcul():
 
 # Start of the program
 print("")
-calcul()
+calculation()
 print("Fin du programme !")

@@ -4,7 +4,7 @@ from requests import Session
 
 
 # Retrieves the value of the crypto
-def fonctionValue():
+def valueFunction():
     try:
         # API URL to take crypto value
         url = 'https://api3.binance.com/api/v3/ticker/price?symbol=HBARUSDT'
@@ -41,7 +41,7 @@ def script():
     # Program start
 
     # Crypto Value Call
-    price = float(fonctionValue())
+    price = float(valueFunction())
 
     print("")
     print("HBAR est à", price, "USDT/$.")
@@ -51,7 +51,7 @@ def script():
     deposit = info()
 
     # Calculation of the number of crypto
-    crypto = float(deposit) / float(fonctionValue())
+    crypto = float(deposit) / float(valueFunction())
 
     print("----------")
     print("")
